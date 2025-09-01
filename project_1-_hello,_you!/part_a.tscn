@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://clwrsdsnmy3md"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m6jki"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ys316"]
+albedo_color = Color(0.21448, 0.1344, 0.28, 1)
+
+[node name="Part_A" type="Node3D"]
+
+[node name="PlaceholderFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.67902, 0, 0, 0, 1, 0, 0, 0, 2.65012, 0, 0, 0)
+mesh = SubResource("PlaneMesh_m6jki")
+surface_material_override/0 = SubResource("StandardMaterial3D_ys316")

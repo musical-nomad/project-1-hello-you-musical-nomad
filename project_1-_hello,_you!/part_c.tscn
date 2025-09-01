@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://clhttn3a0ep70"]
+
+[node name="Part_C" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlaceholderLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 656.0
+theme_override_font_sizes/font_size = 20
+text = "Add more labels, images, and other Control nodes to this scene to build your personal poster for Part C.
+
+Remember that you may need to scroll down to \"Theme Overrides > Font Sizes\" in the Inspector 
+to make your labels big enough to read. (This is font size 20px, for reference)."
