@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://clwrsdsnmy3md"]
+[gd_scene load_steps=25 format=3 uid="uid://clwrsdsnmy3md"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6jki"]
 albedo_color = Color(0.394733, 0.664784, 0.217098, 1)
@@ -71,6 +71,9 @@ albedo_color = Color(0.442779, 0.252908, 0.115679, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j0tu7"]
 material = SubResource("StandardMaterial3D_3xb3d")
+
+[sub_resource type="PrismMesh" id="PrismMesh_m6jki"]
+material = SubResource("StandardMaterial3D_trumw")
 
 [sub_resource type="BoxMesh" id="BoxMesh_e7awo"]
 
@@ -183,7 +186,7 @@ skeleton = NodePath("../../Front Door")
 
 [node name="wood" type="MeshInstance3D" parent="House"]
 transform = Transform3D(-5.41326e-08, 0, 0.389948, 0, 0.343614, 0, -1.23841, 0, -1.70452e-08, 0.00103045, -0.775815, -0.466001)
-mesh = SubResource("PrismMesh_to4tk")
+mesh = SubResource("PrismMesh_m6jki")
 skeleton = NodePath("../Roof")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="House/wood"]
