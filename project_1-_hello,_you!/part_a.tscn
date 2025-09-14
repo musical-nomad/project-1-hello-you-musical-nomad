@@ -1,13 +1,921 @@
-[gd_scene load_steps=3 format=3 uid="uid://clwrsdsnmy3md"]
+[gd_scene load_steps=24 format=3 uid="uid://clwrsdsnmy3md"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_m6jki"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m6jki"]
+albedo_color = Color(0.394733, 0.664784, 0.217098, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ys316"]
+material = SubResource("StandardMaterial3D_m6jki")
+
+[sub_resource type="Texture2DRD" id="Texture2DRD_m6jki"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ys316"]
-albedo_color = Color(0.21448, 0.1344, 0.28, 1)
+albedo_color = Color(0.186765, 0.491039, 0.823457, 1)
+normal_texture = SubResource("Texture2DRD_m6jki")
 
-[node name="Part_A" type="Node3D"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_m6jki"]
+material = SubResource("StandardMaterial3D_ys316")
 
-[node name="PlaceholderFloor" type="MeshInstance3D" parent="."]
-transform = Transform3D(2.67902, 0, 0, 0, 1, 0, 0, 0, 2.65012, 0, 0, 0)
-mesh = SubResource("PlaneMesh_m6jki")
-surface_material_override/0 = SubResource("StandardMaterial3D_ys316")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_to4tk"]
+albedo_color = Color(0.949477, 0.231815, 0.231508, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ys316"]
+material = SubResource("StandardMaterial3D_to4tk")
+radius = 0.6
+rings = 1
+is_hemisphere = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jsbj"]
+albedo_color = Color(0.94902, 0.231373, 0.231373, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m6jki"]
+material = SubResource("StandardMaterial3D_0jsbj")
+
+[sub_resource type="BoxMesh" id="BoxMesh_to4tk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q6bo7"]
+albedo_color = Color(0.581033, 0.581033, 0.581033, 1)
+metallic = 1.0
+metallic_specular = 0.61
+
+[sub_resource type="SphereMesh" id="SphereMesh_0jsbj"]
+material = SubResource("StandardMaterial3D_q6bo7")
+rings = 1
+is_hemisphere = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eso0h"]
+albedo_color = Color(0.580392, 0.580392, 0.580392, 1)
+metallic = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_q6bo7"]
+material = SubResource("StandardMaterial3D_eso0h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trumw"]
+albedo_color = Color(0.94902, 0.231373, 0.231373, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_to4tk"]
+material = SubResource("StandardMaterial3D_trumw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7awo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_eso0h"]
+material = SubResource("StandardMaterial3D_e7awo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0tu7"]
+albedo_color = Color(0.680638, 0.336175, 0.155234, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_trumw"]
+material = SubResource("StandardMaterial3D_j0tu7")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xb3d"]
+albedo_color = Color(0.442779, 0.252908, 0.115679, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j0tu7"]
+material = SubResource("StandardMaterial3D_3xb3d")
+
+[sub_resource type="BoxMesh" id="BoxMesh_e7awo"]
+
+[node name="MeshInstance3D" type="MeshInstance3D"]
+transform = Transform3D(3.2645, 0, 0, 0, 0.0116686, 0, 0, 0, 3.22278, 0, 0.0389333, 0)
+mesh = SubResource("BoxMesh_ys316")
+
+[node name="House" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.254851, 0, -0.0973129, 0, 66.691, 0, 0.0973129, 0, 0.254851, 0.12011, 66.125, 0.132122)
+mesh = SubResource("CylinderMesh_m6jki")
+
+[node name="Roof" type="MeshInstance3D" parent="House"]
+transform = Transform3D(1.00109, 0, 0, 0, 1.42358, 0, 0, 0, 1.00109, 0.00103045, 0.945423, 0.000879765)
+mesh = SubResource("SphereMesh_ys316")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="House/Roof"]
+transform = Transform3D(0.127192, 0, 0, 0, 0.632038, 0, 0, 0, 0.131897, 0, 0.372161, -0.339777)
+mesh = SubResource("BoxMesh_m6jki")
+skeleton = NodePath("../../Window Outcrop")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="House/Roof/MeshInstance3D4"]
+transform = Transform3D(1.33292, 0, 0, 0, 0.0695449, 0, 0, 0, 1.3252, 0, 0.49694, 0)
+mesh = SubResource("BoxMesh_to4tk")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="House/Roof/MeshInstance3D4"]
+transform = Transform3D(0.601444, 0, 0, 0, 0.458269, 0, 0, 0, 0.610687, 0, 0.49694, 0)
+mesh = SubResource("BoxMesh_to4tk")
+
+[node name="Weathervane thingy" type="MeshInstance3D" parent="House/Roof"]
+transform = Transform3D(-0.0730407, 0, 0, 0, 0.0922645, 0, 0, 0, -0.0869316, 0, 0.942574, 0)
+mesh = SubResource("SphereMesh_0jsbj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="House/Roof/Weathervane thingy"]
+transform = Transform3D(1.08851, 0, 0, 0, 0.741692, 0, 0, 0, 1, 0, 0.824152, 0)
+mesh = SubResource("SphereMesh_q6bo7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="House/Roof/Weathervane thingy"]
+transform = Transform3D(-1, 1.10432e-07, 5.96046e-08, -6.92078e-08, -1, 0, 8.9407e-08, -1.06581e-14, 1, 0, 1.6775, 0)
+mesh = SubResource("SphereMesh_0jsbj")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="House/Roof/Weathervane thingy"]
+transform = Transform3D(1, 0, -8.9407e-08, 0, 1, 0, 1.19209e-07, 0, 1, 0, 1.6775, 0)
+mesh = SubResource("SphereMesh_0jsbj")
+skeleton = NodePath("../..")
+
+[node name="Window Outcrop" type="MeshInstance3D" parent="House"]
+transform = Transform3D(0.389949, 0, 0, 0, 0.343614, 0, 0, 0, 0.389948, 0.00103045, 1.47522, 0.356949)
+mesh = SubResource("PrismMesh_to4tk")
+skeleton = NodePath("../Roof")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="House/Window Outcrop"]
+transform = Transform3D(0.0956796, 0, 0, 0, 1, 0, 0, 0, 0.885415, -0.449502, -0.994702, -0.018779)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="House/Window Outcrop"]
+transform = Transform3D(0.0956796, 0, 0, 0, 1, 0, 0, 0, 0.885415, 0.447803, -1.00135, -0.018779)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="House/Window Outcrop"]
+transform = Transform3D(0.000166956, 0.0209424, 0.88522, 0.0956795, -4.37114e-08, -0.00154534, -3.49304e-06, 0.999782, -0.0185427, -0.0348851, -1.17844, 0.0607342)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="Veranda" type="MeshInstance3D" parent="House"]
+transform = Transform3D(0.699063, 0, 0, 0, 0.343614, 0, 0, 0, 0.389948, 0.00103045, -0.310632, 0.581754)
+mesh = SubResource("PrismMesh_to4tk")
+skeleton = NodePath("../Roof")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="House/Veranda"]
+transform = Transform3D(0.0519818, 0, 0, 0, 1.42532, 0, 0, 0, 0.110186, -0.442425, -1.21823, 0.433017)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="House/Veranda"]
+transform = Transform3D(0.0519818, 0, 0, 0, 1.42532, 0, 0, 0, 0.110186, 0.440726, -1.22477, 0.433017)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="House/Veranda"]
+transform = Transform3D(0.0519818, 0, 0, 0, 1.42532, 0, 0, 0, 0.110186, -0.00675837, -1.22477, 0.433017)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="House/Veranda"]
+transform = Transform3D(0.0519818, 0, 0, 0, 1.42532, 0, 0, 0, 0.110186, -0.442425, -1.21823, -0.387664)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="House/Veranda"]
+transform = Transform3D(0.0519818, 0, 0, 0, 0.447248, 0, 0, 0, 1.50766, -0.442425, -1.53492, -0.387664)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="House/Veranda"]
+transform = Transform3D(-2.2722e-09, 0, 0.476966, 0, 0.447248, 0, -0.0519818, 0, -2.08488e-08, 0.226696, -1.53492, 0.431658)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="House/Veranda"]
+transform = Transform3D(0.0519818, 0, 0, 0, 0.447248, 0, 0, 0, 1.50766, 0.437741, -1.53492, -0.387664)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="House/Veranda"]
+transform = Transform3D(0.0519818, 0, 0, 0, 1.42532, 0, 0, 0, 0.110186, 0.440726, -1.22477, -0.387664)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="House/Veranda"]
+transform = Transform3D(1, 0, 0, 0, 0.228424, 0, 0, 0, 1, 0, -1.84532, 0)
+mesh = SubResource("BoxMesh_trumw")
+
+[node name="veranda door" type="MeshInstance3D" parent="House/Veranda"]
+transform = Transform3D(-0.298136, 0, 0.0126684, 0, 1.08014, 0, -0.0983048, 0, -0.0384204, -0.202268, -1.31715, -0.263388)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="wood" type="MeshInstance3D" parent="House"]
+transform = Transform3D(-5.41326e-08, 0, 0.389948, 0, 0.343614, 0, -1.23841, 0, -1.70452e-08, 0.00103045, -0.775815, -0.466001)
+mesh = SubResource("PrismMesh_to4tk")
+skeleton = NodePath("../Roof")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="House/wood"]
+transform = Transform3D(1, 0, 0, 0, 0.173287, 0, 0, 0, 1, -0.00678832, -0.573155, 0)
+mesh = SubResource("BoxMesh_e7awo")
+
+[node name="Front Door" type="MeshInstance3D" parent="House"]
+transform = Transform3D(-1.70452e-08, 0, 0.389948, 0, 0.343614, 0, -0.389949, 0, -1.70452e-08, -0.600051, -0.472098, -0.00703625)
+mesh = SubResource("PrismMesh_to4tk")
+skeleton = NodePath("../Roof")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="House/Front Door"]
+transform = Transform3D(-0.10211, 0, 0, 0, 1, 0, 0, 0, 0.0711149, -0.449502, -0.994702, -0.416965)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="House/Front Door"]
+transform = Transform3D(-0.10211, 0, 0, 0, 1, 0, 0, 0, 0.0711149, 0.447803, -1.00135, -0.416965)
+mesh = SubResource("BoxMesh_eso0h")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="House/Front Door"]
+transform = Transform3D(1, 0, 0, 0, 0.132593, 0, 0, 0, 1, 0, -1.43661, 0)
+mesh = SubResource("BoxMesh_j0tu7")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="House/Front Door"]
+transform = Transform3D(0.684684, 0, 0, 0, 0.0701399, 0, 0, 0, 0.35628, 3.55271e-15, -1.43661, -0.487406)
+mesh = SubResource("BoxMesh_j0tu7")
+
+[node name="door" type="MeshInstance3D" parent="House/Front Door"]
+transform = Transform3D(0.562776, 0, 0, 0, 1.28687, 0, 0, 0, 0.0404552, 2.38419e-07, -0.911049, 0.278865)
+mesh = SubResource("BoxMesh_j0tu7")
+
+[node name="WIndow top" type="MeshInstance3D" parent="House"]
+transform = Transform3D(-9.59263e-09, 0, 0.0157754, 0, 0.257706, 0, -0.219454, 0, -6.89566e-10, -0.487358, 0.771665, -0.00703633)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../Front Door")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/WIndow top"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/WIndow top"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/WIndow top"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/WIndow top"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/WIndow top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/WIndow top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow2 top" type="MeshInstance3D" parent="House"]
+transform = Transform3D(2.61696e-09, 0, -0.0157754, 0, 0.257706, 0, 0.219454, 0, 1.8812e-10, 0.4866, 0.771665, -0.00703638)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../Front Door")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/WIndow2 top"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/WIndow2 top"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/WIndow2 top"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/WIndow2 top"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/WIndow2 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/WIndow2 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow3 top" type="MeshInstance3D" parent="House"]
+transform = Transform3D(0.219454, 0, 0, 0, 0.257706, 0, 0, 0, 0.0157754, -0.00182014, 0.771665, -0.486774)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../Front Door")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/WIndow3 top"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/WIndow3 top"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/WIndow3 top"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/WIndow3 top"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/WIndow3 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/WIndow3 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow4 top" type="MeshInstance3D" parent="House"]
+transform = Transform3D(-0.219454, 0, -1.37913e-09, 0, 0.257706, 0, 1.91853e-08, 0, -0.0157754, -0.0148398, 0.771665, 0.485682)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../Front Door")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/WIndow4 top"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/WIndow4 top"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/WIndow4 top"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/WIndow4 top"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/WIndow4 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/WIndow4 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow middle" type="MeshInstance3D" parent="House"]
+transform = Transform3D(-9.59263e-09, 0, 0.0157754, 0, 0.30866, 0, -0.219454, 0, -6.89566e-10, -0.487988, 0.0370767, -0.00703633)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../Front Door")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/WIndow middle"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/WIndow middle"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/WIndow middle"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/WIndow middle"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/WIndow middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/WIndow middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow2 middle" type="MeshInstance3D" parent="House"]
+transform = Transform3D(2.61696e-09, 0, -0.0157754, 0, 0.30866, 0, 0.219454, 0, 1.8812e-10, 0.4866, 0.0370767, -0.00703638)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../Front Door")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/WIndow2 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/WIndow2 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/WIndow2 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/WIndow2 middle"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/WIndow2 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/WIndow2 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow3 middle" type="MeshInstance3D" parent="House"]
+transform = Transform3D(0.219454, 0, 0, 0, 0.30866, 0, 0, 0, 0.0157754, -0.00182014, 0.0370767, -0.488183)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../Front Door")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/WIndow3 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/WIndow3 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/WIndow3 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/WIndow3 middle"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/WIndow3 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/WIndow3 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow4 middle" type="MeshInstance3D" parent="House"]
+transform = Transform3D(-0.219454, 0, -1.37913e-09, 0, 0.30866, 0, 1.91853e-08, 0, -0.0157754, -0.0148398, 0.0370767, 0.489516)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../Front Door")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/WIndow4 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/WIndow4 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/WIndow4 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/WIndow4 middle"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/WIndow4 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/WIndow4 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow2 middle2" type="MeshInstance3D" parent="House"]
+transform = Transform3D(2.61696e-09, 0, -0.0157754, 0, 0.30866, 0, 0.219454, 0, 1.8812e-10, 0.4866, -0.576309, -0.00703638)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../Front Door")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/WIndow2 middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/WIndow2 middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/WIndow2 middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/WIndow2 middle2"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/WIndow2 middle2"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/WIndow2 middle2"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("../../Front Door")
+
+[node name="45 degree window" type="MeshInstance3D" parent="House"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0, 0)
+mesh = SubResource("CylinderMesh_m6jki")
+skeleton = NodePath("../..")
+
+[node name="WIndow middle" type="MeshInstance3D" parent="House/45 degree window"]
+transform = Transform3D(7.45058e-09, 0, 0.0157754, 0, 0.30866, 0, -0.219454, 0, -4.65661e-10, -0.483986, 0.0370767, -0.00703639)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/45 degree window/WIndow middle"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/45 degree window/WIndow middle"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/45 degree window/WIndow middle"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/45 degree window/WIndow middle"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/45 degree window/WIndow middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/45 degree window/WIndow middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2 middle" type="MeshInstance3D" parent="House/45 degree window"]
+transform = Transform3D(0, 0, -0.0157754, 0, 0.30866, 0, 0.219454, 0, 0, 0.4866, 0.0370767, -0.00703645)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3 middle" type="MeshInstance3D" parent="House/45 degree window"]
+transform = Transform3D(0.219454, 0, 0, 0, 0.30866, 0, 1.49012e-08, 0, 0.0157754, -0.00182009, 0.0370767, -0.486673)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4 middle" type="MeshInstance3D" parent="House/45 degree window"]
+transform = Transform3D(-0.219454, 0, -1.86265e-09, 0, 0.30866, 0, 7.45058e-09, 0, -0.0157754, -0.0148398, 0.0370767, 0.488166)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/45 degree window/WIndow4 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/45 degree window/WIndow4 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/45 degree window/WIndow4 middle"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/45 degree window/WIndow4 middle"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/45 degree window/WIndow4 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/45 degree window/WIndow4 middle"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow middle2" type="MeshInstance3D" parent="House/45 degree window"]
+transform = Transform3D(0.0275846, 0, 0.0156503, 0, 0.30866, 0, -0.217713, 0, 0.00198292, -0.481569, -0.57812, -0.0748654)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/45 degree window/WIndow middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/45 degree window/WIndow middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/45 degree window/WIndow middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/45 degree window/WIndow middle2"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/45 degree window/WIndow middle2"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/45 degree window/WIndow middle2"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2 middle2" type="MeshInstance3D" parent="House/45 degree window"]
+transform = Transform3D(0, 0, -0.0157754, 0, 0.30866, 0, 0.219454, 0, 0, 0.4866, -0.57812, -0.00703645)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle2"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle2"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/45 degree window/WIndow2 middle2"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3 middle2" type="MeshInstance3D" parent="House/45 degree window"]
+transform = Transform3D(0.219454, 0, 0, 0, 0.30866, 0, 1.49012e-08, 0, 0.0157754, -0.00182009, -0.57812, -0.485529)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle2"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle2"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle2"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/45 degree window/WIndow3 middle2"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow top" type="MeshInstance3D" parent="House/45 degree window"]
+transform = Transform3D(-9.59263e-09, 0, 0.0157754, 0, 0.257706, 0, -0.219454, 0, -6.89566e-10, -0.487705, 0.771665, -0.00703633)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/45 degree window/WIndow top"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/45 degree window/WIndow top"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/45 degree window/WIndow top"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/45 degree window/WIndow top"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/45 degree window/WIndow top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/45 degree window/WIndow top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2 top" type="MeshInstance3D" parent="House/45 degree window"]
+transform = Transform3D(2.61696e-09, 0, -0.0157754, 0, 0.257706, 0, 0.219454, 0, 1.8812e-10, 0.4866, 0.771665, -0.00703638)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/45 degree window/WIndow2 top"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/45 degree window/WIndow2 top"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/45 degree window/WIndow2 top"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/45 degree window/WIndow2 top"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/45 degree window/WIndow2 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/45 degree window/WIndow2 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3 top" type="MeshInstance3D" parent="House/45 degree window"]
+transform = Transform3D(0.219454, 0, 0, 0, 0.257706, 0, 0, 0, 0.0157754, -0.00182014, 0.771665, -0.489016)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/45 degree window/WIndow3 top"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/45 degree window/WIndow3 top"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/45 degree window/WIndow3 top"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/45 degree window/WIndow3 top"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/45 degree window/WIndow3 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/45 degree window/WIndow3 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4 top" type="MeshInstance3D" parent="House/45 degree window"]
+transform = Transform3D(-0.219454, 0, -1.37913e-09, 0, 0.257706, 0, 1.91853e-08, 0, -0.0157754, -0.0148398, 0.771665, 0.486759)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow2" type="MeshInstance3D" parent="House/45 degree window/WIndow4 top"]
+transform = Transform3D(1, 0, 0, 0, 0.167695, 0, -5.68434e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow4" type="MeshInstance3D" parent="House/45 degree window/WIndow4 top"]
+transform = Transform3D(1, 0, 0, 0, 0.080867, 0, -5.68434e-14, 0, 1, 0, 0.461303, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow5" type="MeshInstance3D" parent="House/45 degree window/WIndow4 top"]
+transform = Transform3D(1, 0, 0, 0, 0.0801768, 0, -5.68434e-14, 0, 1, 0, -0.464046, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow3" type="MeshInstance3D" parent="House/45 degree window/WIndow4 top"]
+transform = Transform3D(0.242477, 0, 0, 0, 1, 0, -1.37832e-14, 0, 1, 0, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow6" type="MeshInstance3D" parent="House/45 degree window/WIndow4 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, -0.450764, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
+
+[node name="WIndow7" type="MeshInstance3D" parent="House/45 degree window/WIndow4 top"]
+transform = Transform3D(0.158404, 0, 0, 0, 1, 0, -9.00425e-15, 0, 1, 0.555462, 0, -0.516025)
+mesh = SubResource("BoxMesh_j0tu7")
+skeleton = NodePath("")
