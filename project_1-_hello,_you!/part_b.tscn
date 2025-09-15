@@ -27,7 +27,7 @@ albedo_color = Color(0, 0, 0, 1)
 material = SubResource("StandardMaterial3D_y244p")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2i18j"]
-albedo_color = Color(0.0778514, 0.0919184, 0.288636, 1)
+albedo_color = Color(0.0784314, 0.0901961, 0.592157, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_3a1t7"]
 material = SubResource("StandardMaterial3D_2i18j")
@@ -89,7 +89,7 @@ albedo_color = Color(0, 0, 0, 1)
 material = SubResource("StandardMaterial3D_esiwd")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uoxy0"]
-albedo_color = Color(0.0784314, 0.0901961, 0.290196, 1)
+albedo_color = Color(0.0784314, 0.0901961, 0.592157, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_uqufn"]
 material = SubResource("StandardMaterial3D_uoxy0")
@@ -108,7 +108,7 @@ albedo_color = Color(0, 0, 0, 1)
 material = SubResource("StandardMaterial3D_65qb3")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kn4kt"]
-albedo_color = Color(0.0784314, 0.0901961, 0.290196, 1)
+albedo_color = Color(0.0784314, 0.0901961, 0.592157, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_2sxne"]
 material = SubResource("StandardMaterial3D_kn4kt")
@@ -134,13 +134,13 @@ albedo_color = Color(0, 0, 0, 1)
 material = SubResource("StandardMaterial3D_tene2")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vsrei"]
-albedo_color = Color(0.0784314, 0.0901961, 0.290196, 1)
+albedo_color = Color(0.0784314, 0.0901961, 0.592157, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_21rds"]
 material = SubResource("StandardMaterial3D_vsrei")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nkk8f"]
-albedo_color = Color(0.0784314, 0.0901961, 0.290196, 1)
+albedo_color = Color(0.0784314, 0.0901961, 0.592157, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_wqede"]
 material = SubResource("StandardMaterial3D_nkk8f")

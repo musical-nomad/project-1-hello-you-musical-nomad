@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://clhttn3a0ep70"]
+[gd_scene load_steps=3 format=3 uid="uid://clhttn3a0ep70"]
+
+[ext_resource type="Texture2D" uid="uid://d3cmjtfawxf61" path="res://icon.svg" id="1_3seef"]
+[ext_resource type="Texture2D" uid="uid://s2lva7wonnvd" path="res://75004edc9b0ae46afa10a5d9e7ea9c5e.jpg" id="2_tlj50"]
 
 [node name="Part_C" type="Control"]
 layout_mode = 3
@@ -8,12 +11,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlaceholderLabel" type="Label" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 1151.0
-offset_bottom = 656.0
-theme_override_font_sizes/font_size = 20
-text = "Add more labels, images, and other Control nodes to this scene to build your personal poster for Part C.
+offset_left = 30.0
+offset_top = 15.0
+offset_right = 255.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 30
+text = "Ash Garcia-Diaz"
 
-Remember that you may need to scroll down to \"Theme Overrides > Font Sizes\" in the Inspector 
-to make your labels big enough to read. (This is font size 20px, for reference)."
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 85.0
+offset_right = 470.0
+offset_bottom = 204.0
+theme_override_font_sizes/normal_font_size = 25
+text = "A fun fact about me would be that I am fluent in Spanish. My favorite game is The Witcher 3."
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(105, 307)
+scale = Vector2(1.19531, 1.14844)
+texture = ExtResource("1_3seef")
+
+[node name="75004Edc9b0Ae46Afa10a5d9e7Ea9c5e" type="Sprite2D" parent="."]
+position = Vector2(974, 174)
+scale = Vector2(0.422805, 0.422805)
+texture = ExtResource("2_tlj50")
